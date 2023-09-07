@@ -1,24 +1,24 @@
 import React from 'react';
 
-import PhotoListItem from './components/PhotoListItem';
+import PhotoList from './components/PhotoList';
 import './App.scss';
 
-const sampleDataForPhotoListItem = {
-  id: "1",
-  location: {
-    city: "Montreal",
-    country: "Canada",
-  },
-  imageSource: `http://localhost:3000/Image-1-Regular.jpeg`,
-  username: "Joe Example",
-  profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
-};
+// const sampleDataForPhotoListItem = {
+//   id: "1",
+//   location: {
+//     city: "Montreal",
+//     country: "Canada",
+//   },
+//   imageSource: `http://localhost:3000/Image-1-Regular.jpeg`,
+//   username: "Joe Example",
+//   profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
+// };
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
   return (
     <div className="App">
-      <PhotoListItem photoData={sampleDataForPhotoListItem}/>
+      <PhotoList />
       
     </div>
   );
