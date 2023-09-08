@@ -3,10 +3,18 @@ import FavIcon from './FavIcon';
 
 import '../styles/FavBadge.scss';
 
-const FavBadge = ({ isFavPhotoExist }) => {
+const FavBadge = (props) => {
+  const {favouritesArr} = props
+  const isFavPhotoExist = favouritesArr.length //should this be state? why?
+  // const [isFavPhotoExist, setFavPhotoExist] = useState(0)
+  // setFavPhotoExist(favouritesArr.length)
+
   return (
     <div className='fav-badge'>
-      <FavIcon displayAlert={!!isFavPhotoExist}/>
+      <FavIcon 
+        displayAlert={!!isFavPhotoExist}
+        favouritesArr={favouritesArr}
+      />
     </div>
   ) 
 };

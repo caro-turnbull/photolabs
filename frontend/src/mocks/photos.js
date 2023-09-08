@@ -29,7 +29,7 @@ const photo2 = {
   "user": {
     "id": "2",
     "username": "exampleuser",
-    "name": "Joe Example",
+    "name": "Joey Example",
     "profile": `${process.env.PUBLIC_URL}/profile-1.jpg`
   }
 }
@@ -47,7 +47,7 @@ const photo3 = {
   "user": {
     "id": "3",
     "username": "exampleuser",
-    "name": "Joe Example",
+    "name": "Joela Example",
     "profile": `${process.env.PUBLIC_URL}/profile-1.jpg`
   }
 }
@@ -66,7 +66,7 @@ const photo4 = {
     "id": "4",
     "updated_at": "2016-07-10T11:00:01-05:00",
     "username": "exampleuser",
-    "name": "Joe Example",
+    "name": "Why are these names all the same?",
     "profile": `${process.env.PUBLIC_URL}/profile-1.jpg`
   }
 }
