@@ -7,6 +7,8 @@ import PhotoList from 'components/PhotoList';
 const PhotoDetailsModal = (props) => {
   const { indvPhotoData, setModalView, setIndvPhotoID, favouritesArr, setFavouritesArr } = props;
   console.log("indvDATA from module", indvPhotoData);
+  const simialPhotosArr = Object.values(indvPhotoData.similar_photos)
+  // console.log("is this an array", simialPhotosArr)
 
   return indvPhotoData && (
     <div className="photo-details-modal">
@@ -17,21 +19,21 @@ const PhotoDetailsModal = (props) => {
         </button>
       </div>
 
-      <div> 
-        <img className="photo-details-modal--image" src= {indvPhotoData.urls.full} alt="broken img"></img>
+      <div > 
+        <img className="photo-details-modal__image" src= {indvPhotoData.urls.full} alt="broken img"></img>
 
         <p className="photo-details-modal__photographer-details">
           By: {indvPhotoData.user.name} <br></br>
           {indvPhotoData.location.city}, {indvPhotoData.location.country}
         </p>
 
-        <p className="photo-details-modal--header"> 
+        <p className="photo-details-modal__header"> 
           Similar Photos:
         </p>
 
-        <div className="photo-details-modal--images">
+        <div className="photo-details-modal__images">
           <PhotoList 
-            photos={indvPhotoData.similar_photos}
+            photos={simialPhotosArr}
             setModalView={setModalView}
             setIndvPhotoID={setIndvPhotoID}
             favouritesArr={favouritesArr}

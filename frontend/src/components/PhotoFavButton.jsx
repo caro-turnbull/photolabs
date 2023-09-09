@@ -14,7 +14,7 @@ function PhotoFavButton(props) {
     setFavouritesArr([...favouritesArr, indvPhotoData])
     //need to check if the item is already in teh array
     displayFavourite()
-    console.log("item from favourite click", indvPhotoData)
+    console.log("item from favourite click", indvPhotoData.id)
     console.log("favourites array", favouritesArr)
   }
 

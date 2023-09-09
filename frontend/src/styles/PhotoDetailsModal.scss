@@ -9,6 +9,8 @@
   width: 55%;
   overflow-y: scroll;
   border-radius: 12px;
+  justify-content: center; //added these last two, didnt work
+  align-content: center;
 }
 
 .photo-details-modal__close-button {
@@ -30,14 +32,16 @@
 }
 
 .photo-details-modal__image {
-  max-width: 95%;
-  border-radius: 8px;
+  max-width: 90%;
+  border-radius: 8px 8px 0px 0px;
+  // border-radius: 8px;
+  padding: .5em;
 }
 
 .photo-details-modal__top-bar {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: right;
   margin: 16px;
   margin-top: 8px;
   align-items: center;

@@ -14,6 +14,7 @@ const FavBadge = (props) => {
       <FavIcon 
         displayAlert={!!isFavPhotoExist}
         favouritesArr={favouritesArr}
+        
       />
     </div>
   ) 

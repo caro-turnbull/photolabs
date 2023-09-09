@@ -15,13 +15,13 @@ const PhotoListItem = (props) => {
   }
 
   return (
-  <li className="photo-list__item" onClick={handleClick}>
+  <li className="photo-list__item" >
     <PhotoFavButton 
       indvPhotoData={indvPhotoData}
       favouritesArr={favouritesArr}
       setFavouritesArr={setFavouritesArr}
       />
-    <img className="photo-list__image" src={indvPhotoData.urls.regular}></img>
+    <img className="photo-list__image" src={indvPhotoData.urls.regular} onClick={handleClick}></img>
 
     <div className="photo-list__user-details">
       <img className="photo-list__user-profile" src={indvPhotoData.user.profile}></img>
