@@ -6,22 +6,27 @@ import PhotoFavButton from "./PhotoFavButton";
 
 
 const PhotoListItem = (props) => {
-  const { setIndvPhotoID, setModalView, indvPhotoData, favouritesArr, setFavouritesArr } = props
+  const { indvPhotoData, favouritesArr, modalHandler, favouriteClick, selected } = props
   // console.log("PhotoListItem PROPS", props)
 
-  const handleClick= () => {
-    setModalView(true)
-    setIndvPhotoID((indvPhotoData.id)-1)
-  }
-
+  // const handleClick= () => {
+  //   setModalView(true)
+  //   setIndvPhotoID((indvPhotoData.id)-1)
+  // }
+console.log(indvPhotoData, "here in the listITem")
   return (
   <li className="photo-list__item" >
     <PhotoFavButton 
       indvPhotoData={indvPhotoData}
       favouritesArr={favouritesArr}
-      setFavouritesArr={setFavouritesArr}
+      favouriteClick={favouriteClick}
+      selected= {selected}
+      // setFavouritesArr={setFavouritesArr}
       />
-    <img className="photo-list__image" src={indvPhotoData.urls.regular} onClick={handleClick}></img>
+    <img className="photo-list__image" 
+      src={indvPhotoData.urls.regular} 
+      onClick={() => modalHandler(indvPhotoData)}>
+    </img>
 
     <div className="photo-list__user-details">
       <img className="photo-list__user-profile" src={indvPhotoData.user.profile}></img>
@@ -31,7 +36,6 @@ const PhotoListItem = (props) => {
           {indvPhotoData.location.city}, {indvPhotoData.location.country}
         </div>
       </div>
-      
     </div>
   </li>
   )

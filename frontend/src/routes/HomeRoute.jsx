@@ -5,20 +5,23 @@ import TopNavigation from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
 
 const HomeRoute = (props) => {
-  const {photos, setModalView, setIndvPhotoID, favouritesArr, setFavouritesArr} = props
+  const {photos, state, modalHandler, favouriteClick} = props
   
 
   return (
     <div className="home-route">
       <TopNavigation 
-        favouritesArr={favouritesArr}
+        favouritesArr={state.favouritesArr}
       />
       <PhotoList 
-        favouritesArr={favouritesArr}
-        setFavouritesArr={setFavouritesArr}
-        setModalView={setModalView}
-        setIndvPhotoID={setIndvPhotoID}
         photos ={photos}
+        favouritesArr={state.favouritesArr}
+        selected={state.selected}
+        modalHandler={modalHandler}
+        favouriteClick={favouriteClick}
+        // setFavouritesArr={setFavouritesArr}
+        // setModalView={setModalView}
+        // setIndvPhotoID={setIndvPhotoID}
       />
     </div>
   );
