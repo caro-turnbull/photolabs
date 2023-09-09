@@ -8,13 +8,13 @@ import PhotoList from 'components/PhotoList';
 import PhotoFavButton from 'components/PhotoFavButton';
 
 const PhotoDetailsModal = (props) => {
-  const { indvPhotoData, selected, favouritesArr, closeModal, modalHandler, favouriteClick } = props;
+  const { modalView, indvPhotoData, selected, favouritesArr, closeModal, modalHandler, favouriteClick } = props;
   console.log("indvDATA/focusPhoto from module", indvPhotoData);
 
   //turn similar_photos object into array, so we can map over it
   const similarPhotosArr = Object.values(indvPhotoData.similar_photos)
   
-  return indvPhotoData && (
+  return modalView && (
     <div className="photo-details-modal">
 
       <div className="photo-details-modal__top-bar">

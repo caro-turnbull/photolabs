@@ -40,6 +40,7 @@ const App = () => {
         selected={state.selected}
         closeModal={closeModal}
         favouriteClick={favouriteClick}
+        modalView ={state.modalView}
         indvPhotoData={state.focusPhoto}
         // photos={photos}
         // setModalView={setModalView}
