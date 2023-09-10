@@ -28,9 +28,10 @@ const PhotoDetailsModal = (props) => {
           indvPhotoData={indvPhotoData}
           favouritesArr={favouritesArr}
           favouriteClick={favouriteClick}
-          selected={selected}
+          // selected={selected}
           // setFavouritesArr={setFavouritesArr}
         />
+        
         <img className="photo-details-modal__image" src= {indvPhotoData.urls.full} alt="broken img"></img>
 
         <div className="photo-details-modal__photographer-details">

@@ -37,7 +37,7 @@ const App = () => {
       {(Object.keys(state.focusPhoto).length > 0) && 
       <PhotoDetailsModal 
         favouritesArr={state.favouritesArr}
-        selected={state.selected}
+        // selected={state.selected}
         closeModal={closeModal}
         favouriteClick={favouriteClick}
         modalView ={state.modalView}
