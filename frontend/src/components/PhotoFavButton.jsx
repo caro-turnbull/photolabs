@@ -3,11 +3,9 @@ import React, { useCallback, useState } from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-
-
 function PhotoFavButton(props) {
   const { indvPhotoData, favouritesArr, favouriteClick } = props
-  const [selected, setSelected] = useState(false);
+  const [selected, setSelected] = useState(false);  //still using useState here
 
   const selectClick = function () {
     setSelected(!selected);
@@ -15,9 +13,7 @@ function PhotoFavButton(props) {
   
   return (
     <div className="photo-list__fav-icon" 
-      // onClick={()=> {dispatch({type:"FAV_PHOTO_TOGGLE" , value: indvPhotoData}); selectClick()}}
       onClick={()=> {favouriteClick(indvPhotoData); selectClick()}}
-        // setSelected(selected === true ? false : true)
     >
       <div className="photo-list__fav-icon-svg">
       <FavIcon selected={selected}/>

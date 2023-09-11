@@ -7,8 +7,6 @@ import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = (props) => {
   const { indvPhotoData, favouritesArr, selected, modalHandler, favouriteClick } = props
-  // console.log("PhotoListItem PROPS", props)
-  // const [selected, setSelected] = useState() //would it be better here?
 
   return (
   <li className="photo-list__item" >

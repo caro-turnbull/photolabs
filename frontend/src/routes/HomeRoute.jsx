@@ -19,9 +19,6 @@ const HomeRoute = (props) => {
         selected={state.selected}
         modalHandler={modalHandler}
         favouriteClick={favouriteClick}
-        // setFavouritesArr={setFavouritesArr}
-        // setModalView={setModalView}
-        // setIndvPhotoID={setIndvPhotoID}
       />
     </div>
   );

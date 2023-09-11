@@ -7,9 +7,9 @@ const ACTIONS = {
 };
 
 const initialState = {
-  modalView: false, //whether modal is open or hidden
-  focusPhoto: {}, //which photo's info is shown in modal
-  favouritesArr: [] //array of favourites
+  modalView: false, 
+  focusPhoto: {}, 
+  favouritesArr: [] 
 }
 
 function reducer(state, action) {
@@ -34,10 +34,6 @@ export default function useApplicationData () {
   const modalHandler = (indvPhotoData) => {
     console.log("are we rcving the right obj", indvPhotoData)
     dispatch({type: ACTIONS.SET_FOCUS_PHOTO, value: indvPhotoData})
-    // setModalView(true)
-    // setFocusPhoto(indvPhotoData)
-    // setFocusPhoto((indvPhotoData.id)-1)
-    // console.log("???ID or index?? from modal", indvPhotoData.id)
   }
 
   //this happen in the modal close button
@@ -50,14 +46,10 @@ export default function useApplicationData () {
     if (state.favouritesArr.includes(indvPhotoData)){
       const copyOfFavs = [...state.favouritesArr]
       const removed = copyOfFavs.filter(i => i !== indvPhotoData)
-      // setFavouritesArr(favouritesArr.filter(i => i !== indvPhotoData))
       dispatch({type: ACTIONS.FAV_PHOTO_TOGGLE, value: removed})
-      console.log("if included", copyOfFavs)
     } else {
       const added = [...state.favouritesArr, indvPhotoData]
       dispatch({type: ACTIONS.FAV_PHOTO_TOGGLE, value: added})
-      // setFavouritesArr((prev) => [...prev, indvPhotoData]) //prev?
-      console.log("if not included already", state.favouritesArr)
     }
   }
 

@@ -5,8 +5,6 @@ import '../styles/FavBadge.scss';
 
 const FavBadge = (props) => {
   const {numOfFavourites} = props
-  // const areThereAnyFavs = favouritesArr.length 
-
 
   return (
     <div className='fav-badge'>

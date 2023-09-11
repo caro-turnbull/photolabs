@@ -28,8 +28,6 @@ const PhotoDetailsModal = (props) => {
           indvPhotoData={indvPhotoData}
           favouritesArr={favouritesArr}
           favouriteClick={favouriteClick}
-          // selected={selected}
-          // setFavouritesArr={setFavouritesArr}
         />
         
         <img className="photo-details-modal__image" src= {indvPhotoData.urls.full} alt="broken img"></img>
@@ -55,9 +53,6 @@ const PhotoDetailsModal = (props) => {
             selected={selected}
             modalHandler={modalHandler}
             favouriteClick={favouriteClick}
-            // setModalView={setModalView}
-            // setIndvPhotoID={setIndvPhotoID}
-            // setFavouritesArr={setFavouritesArr}
           />
          </div>
 
