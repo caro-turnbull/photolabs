@@ -4,30 +4,64 @@ const ACTIONS = {
   FAV_PHOTO_TOGGLE: 'FAV_PHOTO_TOGGLE',
   SET_FOCUS_PHOTO: 'SET_FOCUS_PHOTO',
   CLOSE_MODAL: 'CLOSE_MODAL',
+  SET_PHOTO_DATA: 'SET_PHOTO_DATA',
+  SET_TOPIC_DATA: 'SET_TOPIC_DATA'
 };
 
 const initialState = {
   modalView: false, 
   focusPhoto: {}, 
-  favouritesArr: [] 
+  favouritesArr: [],
+  photos: [],
+  topics: []
 }
 
 function reducer(state, action) {
+  console.log("state in the reducer funt", state)
   
   if (action.type === "FAV_PHOTO_TOGGLE") {
-    return {...state, favouritesArr:action.value}
+    return {...state, favouritesArr: action.value}
   }
   if (action.type === "SET_FOCUS_PHOTO") {
-    return {...state, modalView:true, focusPhoto:action.value}
+    return {...state, modalView: true, focusPhoto: action.value}
   }
   if (action.type === "CLOSE_MODAL") {
-    return {...state, modalView:action.value}
+    return {...state, modalView: action.value}
+  }
+  if (action.type === "SET_PHOTO_DATA") {
+    return {...state, photos: action.value}
+  }
+  if (action.type === "SET_TOPIC_DATA") {
+    return {...state, topics: action.value}
   }
 }
 
 export default function useApplicationData () {
   
   const [state, dispatch] = useReducer(reducer, initialState)
+
+  //this calls the photos
+    useEffect(() => {
+        console.log("fetching photos");
+        fetch('http://localhost:8001/api/photos')
+        .then(res => res.json())
+        .then (data => {
+          console.log("data from fetch", data)
+          dispatch({type: ACTIONS.SET_PHOTO_DATA, value: data})
+        })
+      }, []); //just once
+
+
+    //this calls the topics
+    useEffect(() => {
+      console.log("fetching topics");
+      fetch('http://localhost:8001/api/topics')
+      .then(res => res.json())
+      .then (data => {
+        console.log("data from fetch", data)
+        dispatch({type: ACTIONS.SET_TOPIC_DATA, value: data})
+      })
+    }, []); //just once
 
 
   //this happens in PhotoListItem

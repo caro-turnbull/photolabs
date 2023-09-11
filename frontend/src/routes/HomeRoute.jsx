@@ -12,6 +12,7 @@ const HomeRoute = (props) => {
     <div className="home-route">
       <TopNavigation 
         numOfFavourites={state.favouritesArr.length}
+        topics = {state.topics}
       />
       <PhotoList 
         photos ={photos}

@@ -3,7 +3,7 @@ import './App.scss';
 
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
-import photos from 'mocks/photos';
+// import photos from 'mocks/photos';
 import useApplicationData from 'hooks/useApllicationData';
 
 // Note: Rendering a single component to build components in isolation
@@ -19,7 +19,7 @@ const App = () => {
   return (
     <div className="App">
      <HomeRoute 
-        photos={photos}
+        photos={state.photos}
         state={state}
         modalHandler={modalHandler}
         favouriteClick={favouriteClick}
