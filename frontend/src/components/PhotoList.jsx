@@ -14,12 +14,8 @@ const PhotoList = (props) => {
         key={item.id} 
         indvPhotoData={item}
         favouritesArr={favouritesArr}
-        // selected ={selected}
         modalHandler={modalHandler}
         favouriteClick={favouriteClick}
-        // setFavouritesArr={setFavouritesArr}
-        // setModalView={setModalView}
-        // setIndvPhotoID={setIndvPhotoID}
         />
         )
       )}
