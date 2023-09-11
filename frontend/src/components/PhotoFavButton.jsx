@@ -9,13 +9,13 @@ function PhotoFavButton(props) {
   const { indvPhotoData, favouritesArr, favouriteClick } = props
   const [selected, setSelected] = useState(false);
 
-
   const selectClick = function () {
     setSelected(!selected);
   }
   
   return (
     <div className="photo-list__fav-icon" 
+      // onClick={()=> {dispatch({type:"FAV_PHOTO_TOGGLE" , value: indvPhotoData}); selectClick()}}
       onClick={()=> {favouriteClick(indvPhotoData); selectClick()}}
         // setSelected(selected === true ? false : true)
     >
