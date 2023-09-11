@@ -15,12 +15,6 @@ const App = () => {
     state
   } = useApplicationData()
   console.log("heres state in the app", state)
-
-
-  // const [modalView, setModalView] = useState(false)
-  // const [indvPhotoID, setIndvPhotoID] = useState()
-  // const [favouritesArr, setFavouritesArr] = useState([])
-
   
   return (
     <div className="App">
@@ -29,24 +23,15 @@ const App = () => {
         state={state}
         modalHandler={modalHandler}
         favouriteClick={favouriteClick}
-        // setModalView={setModalView}
-        // setIndvPhotoID={setIndvPhotoID}
-        // favouritesArr={favouritesArr}
-        // setFavouritesArr={setFavouritesArr}
         />
       {(Object.keys(state.focusPhoto).length > 0) && 
       <PhotoDetailsModal 
         favouritesArr={state.favouritesArr}
-        // selected={state.selected}
         closeModal={closeModal}
         favouriteClick={favouriteClick}
         modalView ={state.modalView}
         indvPhotoData={state.focusPhoto}
         // photos={photos}
-        // setModalView={setModalView}
-        // indvPhotoID={indvPhotoID}
-        // indvPhotoData={photos[indvPhotoID]}
-        // setFavouritesArr={setFavouritesArr}
       />
       }
     </div>

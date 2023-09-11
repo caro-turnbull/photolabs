@@ -11,7 +11,7 @@ const HomeRoute = (props) => {
   return (
     <div className="home-route">
       <TopNavigation 
-        favouritesArr={state.favouritesArr}
+        numOfFavourites={state.favouritesArr.length}
       />
       <PhotoList 
         photos ={photos}

@@ -11,6 +11,7 @@ export default function useApplicationData () {
     focusPhoto, //which photo's info is shown in modal
     favouritesArr, //array of favourites
     // selected  //to show if each indv photo is fav or not
+    
   }
 console.log ("state from the custom hook", state)
 
@@ -36,17 +37,17 @@ console.log ("state from the custom hook", state)
   //   setSelected(selected === true ? false : true)
   //   console.log("ID of favourite", indvPhotoData.id)
   // }
+
 ///refactored to TOGGLE in FavArr  ///happens in photo fav button
 const favouriteClick =(indvPhotoData) => {
   if (favouritesArr.includes(indvPhotoData)){
-    setFavouritesArr(favouritesArr.filter(i => i !== indvPhotoData))  //what is i?
+    setFavouritesArr(favouritesArr.filter(i => i !== indvPhotoData))
     console.log("if included", favouritesArr)
   } else {
     setFavouritesArr((prev) => [...prev, indvPhotoData]) //prev?
     console.log("if not included already", favouritesArr)
   }
 }
-  
 
   return{
     state,
