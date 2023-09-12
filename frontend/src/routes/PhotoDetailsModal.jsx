@@ -8,13 +8,13 @@ import PhotoList from 'components/PhotoList';
 import PhotoFavButton from 'components/PhotoFavButton';
 
 const PhotoDetailsModal = (props) => {
-  const { modalView, indvPhotoData, selected, favouritesArr, closeModal, modalHandler, favouriteClick } = props;
+  const { modalView, indvPhotoData, selected, favouritesArr, closeModal, modalHandler, favouriteClick, dark_toggle } = props;
 
   //turn similar_photos object into array, so we can map over it
   const similarPhotosArr = Object.values(indvPhotoData.similar_photos)
   
   return modalView && (
-    <div className="photo-details-modal">
+    <div className={`photo-details-modal ${dark_toggle ? 'dark-mode' : ''}`}>
 
       <div className="photo-details-modal__top-bar">
         <button className="photo-details-modal__close-button" onClick={closeModal}>
@@ -22,7 +22,7 @@ const PhotoDetailsModal = (props) => {
         </button>
       </div>
 
-      <div className="photo-details-modal__body"> 
+      <div className='photo-details-modal__body'> 
         <PhotoFavButton 
           indvPhotoData={indvPhotoData}
           favouritesArr={favouritesArr}

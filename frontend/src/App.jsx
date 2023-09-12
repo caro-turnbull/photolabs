@@ -38,6 +38,7 @@ const App = () => {
         favouriteClick={favouriteClick}
         modalView ={state.modalView}
         indvPhotoData={state.focusPhoto}
+        dark_toggle={state.dark_toggle}
       />
       }
       
