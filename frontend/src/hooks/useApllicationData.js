@@ -6,7 +6,8 @@ const ACTIONS = {
   CLOSE_MODAL: 'CLOSE_MODAL',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
-  GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BY_TOPICS'
+  GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BY_TOPICS',
+  RESET_PHOTOS:'RESET_PHOTOS'
 };
 
 const initialState = {
@@ -38,7 +39,10 @@ function reducer(state, action) {
   if (action.type === "GET_PHOTOS_BY_TOPICS") {
     return {...state, photos: action.value}
   }
-
+  if (action.type === "RESET_PHOTOS") {
+    return {...state, photos: action.value}
+  }
+//are these actions reusable?
 }
 
 export default function useApplicationData () {
@@ -80,6 +84,16 @@ export default function useApplicationData () {
       })
   }
 
+  const resetPhotoData = () => {
+    fetch(`http://localhost:8001/api/photos`)
+      .then(res => res.json())
+      .then (data => {
+        console.log("data from RESETTING", data)
+        dispatch({type: ACTIONS.RESET_PHOTOS, value: data})
+      })
+  }
+  
+
   //this happens in PhotoListItem
   const modalHandler = (indvPhotoData) => {
     console.log("are we rcving the right obj", indvPhotoData)
@@ -108,6 +122,7 @@ export default function useApplicationData () {
     modalHandler,
     closeModal,
     filterByTopics,
+    resetPhotoData,
     favouriteClick
   }
 }
