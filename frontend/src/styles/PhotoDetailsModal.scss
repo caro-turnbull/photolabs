@@ -9,8 +9,15 @@
   width: 55%;
   overflow-y: scroll;
   border-radius: 12px;
-  justify-content: center; //added these last two, didnt work
+}
+
+.photo-details-modal__body{
+  display: flex;  //added this class to try to centre image, didnt work
+  flex-direction: column;
+  justify-content: center; 
   align-content: center;
+  margin: 24px;
+  
 }
 
 .photo-details-modal__close-button {
@@ -35,7 +42,7 @@
   max-width: 90%;
   border-radius: 8px 8px 0px 0px;
   // border-radius: 8px;
-  padding: .5em;
+  // padding: .5em;
 }
 
 .photo-details-modal__top-bar {

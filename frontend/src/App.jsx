@@ -12,6 +12,7 @@ const App = () => {
     modalHandler,
     favouriteClick,
     closeModal,
+    filterByTopics,
     state
   } = useApplicationData()
   console.log("heres state in the app", state)
@@ -23,7 +24,9 @@ const App = () => {
         state={state}
         modalHandler={modalHandler}
         favouriteClick={favouriteClick}
-        />
+        filterByTopics={filterByTopics}
+      />
+
       {(Object.keys(state.focusPhoto).length > 0) && 
       <PhotoDetailsModal 
         favouritesArr={state.favouritesArr}

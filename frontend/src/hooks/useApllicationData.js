@@ -5,7 +5,8 @@ const ACTIONS = {
   SET_FOCUS_PHOTO: 'SET_FOCUS_PHOTO',
   CLOSE_MODAL: 'CLOSE_MODAL',
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
-  SET_TOPIC_DATA: 'SET_TOPIC_DATA'
+  SET_TOPIC_DATA: 'SET_TOPIC_DATA',
+  GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BY_TOPICS'
 };
 
 const initialState = {
@@ -34,6 +35,10 @@ function reducer(state, action) {
   if (action.type === "SET_TOPIC_DATA") {
     return {...state, topics: action.value}
   }
+  if (action.type === "GET_PHOTOS_BY_TOPICS") {
+    return {...state, photos: action.value}
+  }
+
 }
 
 export default function useApplicationData () {
@@ -58,11 +63,22 @@ export default function useApplicationData () {
       fetch('http://localhost:8001/api/topics')
       .then(res => res.json())
       .then (data => {
-        console.log("data from fetch", data)
+        // console.log("data from fetch", data)
         dispatch({type: ACTIONS.SET_TOPIC_DATA, value: data})
       })
     }, []); //just once
 
+    
+  // //this renders the photos in a topic
+  const filterByTopics = (id) => {
+      console.log("fetching photosBYtopics");
+      fetch(`http://localhost:8001/api/topics/photos/${id}`)
+      .then(res => res.json())
+      .then (data => {
+        console.log("data from TOPICSPHOTOSfetch", data)
+        dispatch({type: ACTIONS.GET_PHOTOS_BY_TOPICS, value: data})
+      })
+  }
 
   //this happens in PhotoListItem
   const modalHandler = (indvPhotoData) => {
@@ -91,6 +107,7 @@ export default function useApplicationData () {
     state,
     modalHandler,
     closeModal,
+    filterByTopics,
     favouriteClick
   }
 }

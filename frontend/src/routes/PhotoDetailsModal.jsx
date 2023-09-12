@@ -23,7 +23,7 @@ const PhotoDetailsModal = (props) => {
         </button>
       </div>
 
-      <div > 
+      <div className="photo-details-modal__body"> 
         <PhotoFavButton 
           indvPhotoData={indvPhotoData}
           favouritesArr={favouritesArr}
