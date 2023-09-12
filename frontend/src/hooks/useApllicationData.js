@@ -46,7 +46,7 @@ function reducer(state, action) {
     return {...state, photos: action.value}
   }
   if (action.type === "TOGGLE_DARK_MODE") {
-    return {...state, dark_toggle: action.vale}
+    return {...state, dark_toggle: action.value}
   }
   if (action.type === "SHOW_FAVOURITES") {
     return {...state, photos: action.value}
@@ -122,10 +122,15 @@ export default function useApplicationData () {
   const darkMode =() => {
     let setDark
     console.log("clicked")
-    state.dark_toggle ? setDark = false : setDark = true
+    if (state.dark_toggle === true) {
+      setDark = false
+    } else {
+      setDark = true
+    } 
     dispatch({type:ACTIONS.TOGGLE_DARK_MODE, value: setDark})
   }
 
+  /////CYOA clickable favourites icon
   const showFavourites =(favouritesArr) => {
     console.log("favourites from in the SHOW funct", favouritesArr)
     dispatch({type: ACTIONS.SHOW_FAVOURITES, value:favouritesArr})

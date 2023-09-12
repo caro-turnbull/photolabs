@@ -18,7 +18,8 @@ const App = () => {
   } = useApplicationData()
   
   return (
-    <div className="App">
+    <div className={`App ${state.dark_toggle ? 'dark-mode' : ''}`}>
+      {console.log("state", state)}
      <HomeRoute 
         photos={state.photos}
         state={state}

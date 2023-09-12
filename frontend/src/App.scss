@@ -1,5 +1,12 @@
 .App {
   margin: 24px;
+  background-color: #ffffff;
+  color: #000000;
+
+  &.dark-mode{
+    background-color: #404040;
+    color: #ffffff;
+  }
 }
 
 .App-logo {

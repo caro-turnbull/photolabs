@@ -33,13 +33,11 @@ const PhotoDetailsModal = (props) => {
 
         <div className="photo-details-modal__photographer-details">
           <img className="photo-list__user-profile" src={indvPhotoData.user.profile}></img>
-          <div className="photo-list__user-info" > {indvPhotoData.user.name}
-          <div className="photo-list__user-location" >
-           {indvPhotoData.location.city}, {indvPhotoData.location.country}
+          <div className="photo-list__user-info" > 
+            {indvPhotoData.user.name}
+            <div className="photo-list__user-location" >{indvPhotoData.location.city}, {indvPhotoData.location.country}</div>
           </div>
-         </div>
-
-      </div>
+        </div>
 
         <div className="photo-details-modal__header"> 
           <p>Similar Photos:</p>
@@ -53,10 +51,10 @@ const PhotoDetailsModal = (props) => {
             modalHandler={modalHandler}
             favouriteClick={favouriteClick}
           />
-         </div>
+        </div>
 
-      </div>
-    </div >
+      </div>  
+    </div>
   );
 };
 
