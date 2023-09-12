@@ -98,13 +98,13 @@ export default function useApplicationData () {
 
   ///refactored to TOGGLE in FavArr  ///happens in photo fav button
   const favouriteClick =(indvPhotoData) => {
-    if (state.favouritesArr.includes(indvPhotoData)){
+    if (state.favouritesArr.includes(indvPhotoData.id)){
       const copyOfFavs = [...state.favouritesArr]
-      const removed = copyOfFavs.filter(i => i !== indvPhotoData)
+      const removed = copyOfFavs.filter(i => i !== indvPhotoData.id)
       console.log("removed", removed)
       dispatch({type: ACTIONS.FAV_PHOTO_TOGGLE, value: removed})
     } else {
-      const added = [...state.favouritesArr, indvPhotoData]
+      const added = [...state.favouritesArr, indvPhotoData.id]
       console.log(added, "added")
       dispatch({type: ACTIONS.FAV_PHOTO_TOGGLE, value: added})
     }
