@@ -19,7 +19,7 @@ const initialState = {
 }
 
 function reducer(state, action) {
-  console.log("state in the reducer funt", state)
+  //are these actions reusable? so i wouldnt have so many?
   
   if (action.type === "FAV_PHOTO_TOGGLE") {
     return {...state, favouritesArr: action.value}
@@ -42,7 +42,6 @@ function reducer(state, action) {
   if (action.type === "RESET_PHOTOS") {
     return {...state, photos: action.value}
   }
-//are these actions reusable?
 }
 
 export default function useApplicationData () {
@@ -50,45 +49,39 @@ export default function useApplicationData () {
   const [state, dispatch] = useReducer(reducer, initialState)
 
   //this calls the photos
-    useEffect(() => {
-        console.log("fetching photos");
-        fetch('http://localhost:8001/api/photos')
-        .then(res => res.json())
-        .then (data => {
-          console.log("data from fetch", data)
-          dispatch({type: ACTIONS.SET_PHOTO_DATA, value: data})
-        })
-      }, []); //just once
-
-
-    //this calls the topics
-    useEffect(() => {
-      console.log("fetching topics");
-      fetch('http://localhost:8001/api/topics')
+  useEffect(() => {
+      fetch('http://localhost:8001/api/photos')
       .then(res => res.json())
       .then (data => {
-        // console.log("data from fetch", data)
-        dispatch({type: ACTIONS.SET_TOPIC_DATA, value: data})
+        dispatch({type: ACTIONS.SET_PHOTO_DATA, value: data})
       })
-    }, []); //just once
+  }, []); //just once
 
-    
-  // //this renders the photos in a topic
+
+  //this calls the topics
+  useEffect(() => {
+    fetch('http://localhost:8001/api/topics')
+    .then(res => res.json())
+    .then (data => {
+      dispatch({type: ACTIONS.SET_TOPIC_DATA, value: data})
+    })
+  }, []); //just once
+
+  
+  //this renders the photos in a topic
   const filterByTopics = (id) => {
-      console.log("fetching photosBYtopics");
       fetch(`http://localhost:8001/api/topics/photos/${id}`)
       .then(res => res.json())
       .then (data => {
-        console.log("data from TOPICSPHOTOSfetch", data)
         dispatch({type: ACTIONS.GET_PHOTOS_BY_TOPICS, value: data})
       })
   }
 
+  // this reset to all photos, when the logo is clicked
   const resetPhotoData = () => {
     fetch(`http://localhost:8001/api/photos`)
       .then(res => res.json())
       .then (data => {
-        console.log("data from RESETTING", data)
         dispatch({type: ACTIONS.RESET_PHOTOS, value: data})
       })
   }
@@ -96,7 +89,6 @@ export default function useApplicationData () {
 
   //this happens in PhotoListItem
   const modalHandler = (indvPhotoData) => {
-    console.log("are we rcving the right obj", indvPhotoData)
     dispatch({type: ACTIONS.SET_FOCUS_PHOTO, value: indvPhotoData})
   }
 

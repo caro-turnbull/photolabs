@@ -3,10 +3,8 @@ import './App.scss';
 
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
-// import photos from 'mocks/photos';
 import useApplicationData from 'hooks/useApllicationData';
 
-// Note: Rendering a single component to build components in isolation
 const App = () => {
   const {
     modalHandler,
@@ -16,7 +14,6 @@ const App = () => {
     resetPhotoData,
     state
   } = useApplicationData()
-  console.log("heres state in the app", state)
   
   return (
     <div className="App">
@@ -36,9 +33,9 @@ const App = () => {
         favouriteClick={favouriteClick}
         modalView ={state.modalView}
         indvPhotoData={state.focusPhoto}
-        // photos={photos}
       />
       }
+      
     </div>
   );
 };
