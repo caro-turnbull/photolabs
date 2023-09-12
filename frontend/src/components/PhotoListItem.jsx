@@ -6,7 +6,9 @@ import PhotoFavButton from "./PhotoFavButton";
 
 
 const PhotoListItem = (props) => {
-  const { indvPhotoData, favouritesArr, selected, modalHandler, favouriteClick } = props
+  const { indvPhotoData, favouritesArr, modalHandler, favouriteClick, selectedClick } = props
+
+  // const selected = favouritesArr.includes(indvPhotoData)
 
   return (
   <li className="photo-list__item" >
@@ -14,7 +16,8 @@ const PhotoListItem = (props) => {
       indvPhotoData={indvPhotoData}
       favouritesArr={favouritesArr}
       favouriteClick={favouriteClick}
-      selected= {selected}
+      selectedClick={selectedClick}
+      // selected= {selected}
       />
     <img className="photo-list__image" 
       src={indvPhotoData.urls.regular} 

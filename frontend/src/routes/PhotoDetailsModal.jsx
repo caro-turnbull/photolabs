@@ -8,11 +8,12 @@ import PhotoList from 'components/PhotoList';
 import PhotoFavButton from 'components/PhotoFavButton';
 
 const PhotoDetailsModal = (props) => {
-  const { modalView, indvPhotoData, selected, favouritesArr, closeModal, modalHandler, favouriteClick } = props;
+  const { modalView, indvPhotoData, favouritesArr, closeModal, modalHandler, favouriteClick } = props;
 
   //turn similar_photos object into array, so we can map over it
   const similarPhotosArr = Object.values(indvPhotoData.similar_photos)
-  
+  // const selected = favouritesArr.includes(indvPhotoData)
+
   return modalView && (
     <div className="photo-details-modal">
 
@@ -27,6 +28,7 @@ const PhotoDetailsModal = (props) => {
           indvPhotoData={indvPhotoData}
           favouritesArr={favouritesArr}
           favouriteClick={favouriteClick}
+          // selected={selected}
         />
         
         <img className="photo-details-modal__image" src= {indvPhotoData.urls.full} alt="broken img"></img>
@@ -49,7 +51,7 @@ const PhotoDetailsModal = (props) => {
           <PhotoList 
             photos={similarPhotosArr}
             favouritesArr={favouritesArr}
-            selected={selected}
+            // selected={selected}
             modalHandler={modalHandler}
             favouriteClick={favouriteClick}
           />

@@ -5,7 +5,7 @@ import TopNavigation from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
 
 const HomeRoute = (props) => {
-  const {photos, state, modalHandler, favouriteClick, filterByTopics, resetPhotoData} = props
+  const {photos, state, modalHandler, favouriteClick, filterByTopics, resetPhotoData, selectedClick} = props
   
 
   return (
@@ -22,6 +22,7 @@ const HomeRoute = (props) => {
         selected={state.selected}
         modalHandler={modalHandler}
         favouriteClick={favouriteClick}
+        selectedClick={selectedClick}
       />
     </div>
   );

@@ -7,7 +7,7 @@ const ACTIONS = {
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
   GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BY_TOPICS',
-  RESET_PHOTOS:'RESET_PHOTOS'
+  RESET_PHOTOS:'RESET_PHOTOS',
 };
 
 const initialState = {
@@ -15,7 +15,7 @@ const initialState = {
   focusPhoto: {}, 
   favouritesArr: [],
   photos: [],
-  topics: []
+  topics: [],
 }
 
 function reducer(state, action) {
@@ -86,7 +86,6 @@ export default function useApplicationData () {
       })
   }
   
-
   //this happens in PhotoListItem
   const modalHandler = (indvPhotoData) => {
     dispatch({type: ACTIONS.SET_FOCUS_PHOTO, value: indvPhotoData})
@@ -102,9 +101,11 @@ export default function useApplicationData () {
     if (state.favouritesArr.includes(indvPhotoData)){
       const copyOfFavs = [...state.favouritesArr]
       const removed = copyOfFavs.filter(i => i !== indvPhotoData)
+      console.log("removed", removed)
       dispatch({type: ACTIONS.FAV_PHOTO_TOGGLE, value: removed})
     } else {
       const added = [...state.favouritesArr, indvPhotoData]
+      console.log(added, "added")
       dispatch({type: ACTIONS.FAV_PHOTO_TOGGLE, value: added})
     }
   }
@@ -115,6 +116,6 @@ export default function useApplicationData () {
     closeModal,
     filterByTopics,
     resetPhotoData,
-    favouriteClick
+    favouriteClick,
   }
 }
