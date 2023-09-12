@@ -9,6 +9,11 @@
   box-shadow: 0 4px 6px -6px #222;
   height: 72px;
 }
+.icons{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 
 .top-nav-bar__logo {
   text-decoration: overline;

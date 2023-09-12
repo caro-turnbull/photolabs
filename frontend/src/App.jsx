@@ -12,6 +12,8 @@ const App = () => {
     closeModal,
     filterByTopics,
     resetPhotoData,
+    darkMode,
+    showFavourites,
     state
   } = useApplicationData()
   
@@ -24,6 +26,8 @@ const App = () => {
         favouriteClick={favouriteClick}
         filterByTopics={filterByTopics}
         resetPhotoData={resetPhotoData}
+        darkMode={darkMode}
+        showFavourites={showFavourites}
       />
 
       {(Object.keys(state.focusPhoto).length > 0) && 
